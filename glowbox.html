@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Glowbox</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a class="logo">GlowBox</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">About</a></li>
+							<li class="active"><a href="projects.html">Projects</a></li>
+							<li><a href="resume.html">Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Heading -->
+							<section class="post">
+								<header class="major">
+									<h1>A/B Analysis<br />
+									Case Study</h1>
+								</header>
+
+								<!-- Case Highlights -->
+									<h2>Overview</h2>
+                                    <p>GloBox is an online marketplace that specializes in sourcing unique and high-quality products from around the world.
+                                        <blockquote>“We believe that shopping should be an adventure, and we want to bring the world to your doorstep. From exotic spices and rare teas to handmade jewelry and textiles, we have a curated selection of products that you won't find anywhere else.”</blockquote>
+
+                                        GloBox is primarily known amongst its customer base for boutique fashion items and high-end decor products. However, their food and drink offerings have grown tremendously in the last few months, and the company wants to bring awareness to this product category to increase revenue.</p>
+									<hr />
+
+									<header>
+										<h2>The Problem</h2>
+										<p>While GloBox is renowned for boutique fashion items and high-end decor, the recent expansion in the food and drink category required better visibility and promotion.</p>
+									</header>
+									<p>Objective: Assess the effectiveness of the banner in driving conversions.</p>
+									<header>
+                                    <hr />
+                                    
+                                    <header>
+										<h2>Test Setup</h2>
+                                    </header>
+										<li>The experiment is only being run on the mobile website.</li>
+                                        <li>A user visits the GloBox main page and is randomly assigned to either the control or test group. This is the join date for the user.</li>
+                                        <li>The page loads the banner if the user is assigned to the test group, and does not load the banner if the user is assigned to the control group.</li>
+                                        <li>The user subsequently may or may not purchase products from the website. It could be on the same day they join the experiment, or days later. If they do make one or more purchases, this is considered a “conversion”.
+                                        </li> 
+                                    <hr />
+                                    
+                                    <header>
+									<h2>Recommendation and Justification</h2>
+                                    <h4>Fullscale Launch of the Banner</h4>
+                                    </header>
+									<p>The surge in conversion rates, coupled with the banner's minimal operational overhead, makes a compelling case for its wider deployment. It not only highlights GloBox's evolving product portfolio but is also expected to enrich the user's browsing journey.
+                                    <header>
+                                        <h4>Business Factors</h4>
+                                    </header>
+                                    <p>Operational Cost: The seamless integration and upkeep of the banner bolster the recommendation.</p>
+                                    <p>User Experience: The banner, emphasizing the food and drink category, is projected to enhance the browsing experience, fostering deeper user engagement.</p>
+									<hr />
+
+								<!-- Analytics -->
+									<h2>Analytics</h2>
+									<div>
+										<div class="col-6 col-12-small">
+											<h3>Data Analysis performed </h3>
+											<ol>
+												<h5><li>Conduct a hypothesis test to determine whether there's a significant difference in the conversion rate between the two groups. Using the pooled proportion for the standard error and test at a 5% significance level.</li></h5>
+                                                <p>Results:(3.8643, 0.0001)</p>
+                                                <p>Given that the p-value is much less than the significance level of 0.05, we reject the null hypothesis. This means there is a statistically significant difference in the conversion rates between the two groups.</p>
+
+
+												<h5><li>Calculate the 95% confidence interval for the difference in the conversion rate between the treatment and control groups (treatment - control).using the normal distribution and unpooled proportions for the standard error.</li></h5>
+                                                <p>Results:(0.0035, 0.0107)</p>
+                                                <p>This means that we are 95% confident that the difference in conversion rates between the test group (with the banner) and the control group (without the banner) lies within this interval.</p>
+
+												<h5><li>Conduct a hypothesis test to determine if there's a significant difference in the average amount spent per user between the two groups. using the t-distribution and assume unequal variances.</li></h5>
+                                                <p>Results: T-statistic: 0.0682, P-value: 0.95</p>
+                                                <p>Given that the p-value is much greater than the significance level of 0.05, we fail to reject the null hypothesis. This indicates that there isn't a statistically significant difference in the average amount spent per user between the two groups.</p>
+
+												<h5><li>Calculate the 95% confidence interval for the difference in the average amount spent per user between the treatment and control groups (treatment - control). using the t-distribution and assume unequal variances.</li></h5>
+                                                <p>Results: The 95% confidence interval for the difference in the average amount spent per user between the treatment and control groups (treatment - control) is: (-0.439, 0.4708)</p>
+                                                <p>This means that we are 95% confident that the difference in average amounts spent by users between the test group (with the banner) and the control group (without the banner) lies within this interval.</p>
+
+											</ol>
+										</div>
+									</div>
+
+									<h3>Visualizing</h3>
+									<dl>
+										<dt>Conversion Rate And Average Amount Spent Between The Test Groups</dt>
+										<dd>
+                                            <span class="image fit"><img src="images/abgroup.jpg" alt="" /></span>
+											<p>Conversion Rate by Group:
+                                                Both the control (A) and test (B) groups show similar conversion rates. However, the test group has a slightly higher conversion rate than the control group.</p>
+                                                
+                                                <p>Average Amount Spent by Group: The average amount spent by users in both groups appears to be nearly identical, with no noticeable difference between the control and test groups.</p>
+										</dd>
+
+										<dt>Distribution of the Amount Spent Per User For Each Group</dt>
+										<dd>
+                                            <span class="image fit"><img src="images/abspent.jpg" alt="" /></span>
+											<p>For the majority of users, the amount spent is close to $0, indicating that many users do not make a purchase.
+
+                                                Both the control (A) and test (B) groups show a similar distribution for the amount spent by users, with only slight variations.
+                                                
+                                                There are a few users who spent higher amounts, but these instances are rare.</p>
+										</dd>
+
+										<dt>Test Metrics (Conversion Rate, Average Amount Spent) And The User's Device</dt>
+										<dd>
+                                            <span class="image fit"><img src="images/abdevice.jpg" alt="" /></span>
+											<p>Conversion Rate by Device:
+
+                                                Both iOS (I) and Android (A) users in the test group (B) show a slightly higher conversion rate than their counterparts in the control group (A).
+                                            
+                                                iOS users have a higher conversion rate than Android users in both the control and test groups.</p>
+                                            
+                                            <p>Average Amount Spent by Device:
+                                            
+                                                The average amount spent by users is slightly higher for iOS users in both groups compared to Android users.
+                                            
+                                                The difference in average amount spent between the control and test groups is minimal for both device types.</p>
+										</dd>
+
+                                        <dt>Test Metrics by Gender</dt>
+										<dd>
+                                            <span class="image fit"><img src="images/abgender.jpg" alt="" /></span>
+											<p>Conversion Rate by Gender: Males (M) in both the control and test groups have a slightly higher conversion rate than females (F).
+                                                The difference in conversion rate between the control (A) and test (B) groups is marginal across genders.
+                                                Users who identify as "other" (O) have a conversion rate in between that of males and females.
+                                            </p>
+                                            <p>Average Amount Spent by Gender: Males tend to spend a bit more on average than females in both the control and test groups.
+                                                The difference in average amount spent between the control and test groups is minimal across all gender categories.</p>
+										</dd>
+                                        
+                                        <dt>Conversion Rate by Country</dt>
+										<dd>
+                                            <span class="image fit"><img src="images/abcountry.jpg" alt="" /></span>
+											<p>The conversion rate varies across countries.</p>
+                                            <p>
+                                             For most countries, the test group (B) has a higher conversion rate than the control group (A), with notable differences observed for countries like BEL, BRA, and DEU.
+                                            
+                                                However, for some countries like CAN and USA, the control group has a slightly higher conversion rate than the test group.</p>
+                                            
+                                            <p>Average Amount Spent by Country</p>
+                                            
+                                                <p>The average amount spent by users varies significantly across countries.
+                                            
+                                                Countries like AUS, BRA, and CAN have users who spend more on average compared to users from other countries.
+                                            
+                                                The difference in average amount spent between the control and test groups across countries is minimal, with some exceptions such as Canada.</p>
+										</dd>
+                                        <a href="https://github.com/MichaelECon95/Glowbox-ABTesting-Case-Study/blob/main/Glowbox.py" class="button fit">Complete Python Code</a>
+									</dl>
+                                    <hr />
+
+                                    <h2>Additional Information</h2>
+                                    <h4>Skills Used:</h4>
+                                    <div class="row">
+                                    <li>Python</li>
+                                    <li>Data Cleaning</li>
+                                    <li><a href="https://public.tableau.com/views/GloBoxABTestAnalysisforFoodDrinkBanner/ConfidenceIntervals?:language=en-US&:display_count=n&:origin=viz_share_link">Tableau</a></li>
+                                    <li>Critical Thinking</li>
+                                    <li>Statistical Programming</li>
+                                    </div>
+                                    <p></p>
+                                    <h4>Helpful Resources</h4>
+                                    <p>Gupta, Shivam Sen. “A/B Testing in Excel: What Should You Use?” Scaler Topics, 22 May 2023, www.scaler.com/topics/statistical-significance-calculator-excel/. Accessed 16 Aug. 2023.</p>
+									<h4>Training</h4>
+                                    <p>Data Analytics training and guidance provided by <a href="https://www.masterschool.com/">Masterschool</a> along with <a href="https://www.udacity.com/">Udacity</a></p>
+                            </section>
+
+        </div>
+
+                                    <!-- Footer -->
+                                        <footer id="footer">
+                                            <section class="split contact">
+                                                <section class="alt">
+                                                    <h3>Located</h3>
+                                                    <p>San Antonio, Tx</p>
+                                                </section>
+                                                </section>
+                                                <section>
+                                                    <h3>Email</h3>
+                                                    <p><a href="michealecon@outlook.com">michealecon@outlook.com</a></p>
+                                                </section>
+                                                <section>
+                                                    <h3>Social</h3>
+                                                    <ul class="icons alt">
+                                                        <li><a href="https://www.linkedin.com/in/eric-contreras-ba32b018b/" class="icon brands alt fa-linkedin"><span class="label">Twitter</span></a></li>
+                                                        <li><a href="https://github.com/MichaelECon95" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                                                    </ul>
+                                            </section>
+                                        </footer>
+                       
+                            <!-- Scripts -->
+                                <script src="assets/js/jquery.min.js"></script>
+                                <script src="assets/js/jquery.scrollex.min.js"></script>
+                                <script src="assets/js/jquery.scrolly.min.js"></script>
+                                <script src="assets/js/browser.min.js"></script>
+                                <script src="assets/js/breakpoints.min.js"></script>
+                                <script src="assets/js/util.js"></script>
+                                <script src="assets/js/main.js"></script>
+                        
+                        </body>
+                        </html>
