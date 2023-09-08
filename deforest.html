@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Deforestation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a class="logo">Deforestation</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">About</a></li>
+							<li class="active"><a href="projects.html">Projects</a></li>
+							<li><a href="resume.html">Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/michael-contreras-ba32b018b/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/MichaelECon95" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Heading -->
+							<section class="post">
+								<header class="major">
+									<h1>SQL Analysis<br />
+									Case Study</h1>
+								</header>
+
+								<!-- Case Highlights -->
+									<h2>Overview</h2>
+                                    <p>ForestQuery is a non-profit organization focused on reducing global deforestation. The leadership team seeks insights into global forestation trends from 1990 to 2016.</p>
+									<hr />
+
+									<header>
+										<h2>The Problem</h2>
+										<p>Their goal is to identify regions and countries where forests are diminishing and those with significant forest areas. This information will guide resource allocation to maximize impact.</p>
+									</header>
+									
+
+                                    <hr />
+                                    
+                                    <header>
+										<h2>Test Setup</h2>
+                                    </header>
+										<li>Create SQL queries to understand datasets.</li>
+                                        <li>Create View, “forestation”, by joining all three tables - forest_area, land_area and regions in the workspace.</li>
+                                        <li>In the ‘forestation’ View, include the following: All of the columns of the origin tables.</li>
+                                        <li>Create a new column that provides the percent of the land area that is designated as forest.</li> 
+                                    <hr />
+                                    
+                                    <header>
+									<h2>Recommendation and Justification</h2>
+                                    <h4></h4>
+                                    </header>
+									<p>After carefully examining the available data, it is clear that about 3% of the forest area has been destroyed. However, it is essential to pinpoint the precise regions in extreme need if you want to make a significant impact. A thorough examination of the growth outcomes attained in China leads to the conclusion that further research and study of the methods used there could significantly advance our knowledge of effective methods for the development of forests. Given China's vast land area, there are many lessons to be learned from their experiences, but we need also consider the insightful study data obtained from smaller nations where growth can be simpler to attain.</p>
+                                    <p>While acknowledging Iceland's amazing growth rate of over 200% is significant, it's crucial to keep the main goal of this plan in mind. The location that requires priority attention is thus shown by the results below: Africa sub-Saharan. Sub-Saharan Africa is among the top 5 regions in terms of both square kilometers lost and percentage loss, but many other regions of the world demand attention. The greatest benefit to the world's forests would come from reforestation in this area.</p>
+                                    <p>It is crucial to concentrate on the four key regions of Sub-Saharan Africa that have significant forest loss: Togo, Nigeria, Uganda, and Mauritania, in order to further focus our attention there. We can significantly aid in the restoration and preservation of forest areas by tackling the problems present in these locations.</p>
+                                    
+                                    <header>
+                                        <h4>Business Factors</h4>
+                                    </header>
+                                    <ol>
+                                        <h5><li>Global Situation:</li></h5>
+                                        <p><b>1990:</b> Global forest area was approximately 41,282,694.9 sq km</p>
+                                        <p><b>2016:</b> This reduced to about 39,958,245.9 sq km.</p>
+                                        <p><b>Net Reduction:</b> 1,324,449 sq km from 1990 to 2016, translating to a percentage decrease of 3.21%. This lost forest area is almost equivalent to Peru's total area in 2016.</p>
+                                        <h5><li>Regional Outlook:</li></h5>
+                                        <p><b>2016:</b> The global forestation percentage was 31.38%. The Latin America & Caribbean region led with 46.16% forestation, while the Middle East & North Africa lagged at 2.07%.</p>
+                                        <p><b>1990:</b> Global forestation was slightly higher at 32.42%. The Latin America & Caribbean region had 51.03% forestation, and the Middle East & North Africa had 1.78%.</p>
+                                        <p><b>Decreased Forestation (1990-2016):</b> Latin America & Caribbean and Sub-Saharan Africa regions experienced significant forestation decline.</p>
+                                        <h5><li>Country-Level Detail:</li></h5>
+                                        <p><b>Largest Forest Reduction (1990-2016):</b> Brazil, Indonesia, Myanmar, Nigeria, and Tanzania faced the most significant forest area decreases.</p>
+                                        <p><b>Percentage Decline Leaders:</b> Togo, Nigeria, Uganda, Mauritania, and Honduras.</p>
+                                        <p><b>Comparison with the US (2016):</b> 94 countries had a forestation percentage surpassing the United States.</p>
+
+									</ol><hr />
+
+								<!-- Analytics -->
+									<h2>Analytics</h2>
+
+											<h3>Data Joins </h3>
+                                            <pre><code>DROP VIEW IF EXISTS forestation;
+
+CREATE VIEW forestation AS
+
+SELECT
+  f.country_name,
+  f.country_code,
+  f.year,
+  r.income_group,
+  r.region,
+  l.total_area_sq_mi,
+  (total_area_sq_mi*2.59) as total_area_sq_km,
+  f.forest_area_sqkm
+FROM forest_area f
+  INNER JOIN land_area l ON f.country_code = l.country_code AND f.year = l.year
+  INNER JOIN regions r ON r.country_code = f.country_code
+GROUP BY f.country_name, f.country_code,
+f.year, r.income_group, r.region, l.total_area_sq_mi, f.forest_area_sqkm
+                                                </code></pre>
+
+										<h3>Sample Anaylsis </h3>
+										<b>Which regions of the world DECREASED in forest area from 1990 to 2016?</b>
+                                            <pre><code>WITH t1 AS
+  (SELECT
+    region,
+  	ROUND((Sum(forest_area_sqkm) /
+      Sum(total_area_sq_mi*2.59)*100):: NUMERIC,2) AS forest_percentage
+   FROM forestation
+   WHERE year = 1990
+   GROUP BY region
+   ORDER BY forest_percentage DESC),
+
+  t2 AS
+  (SELECT
+    region,
+  	ROUND((Sum(forest_area_sqkm) /
+      Sum(total_area_sq_mi*2.59)*100):: NUMERIC,2) AS forest_percentage
+   FROM forestation
+   WHERE year = 2016
+   GROUP BY region
+   ORDER BY forest_percentage DESC)
+
+SELECT
+  t1.region,
+	t1.forest_percentage AS forest_1990,
+  t2.forest_percentage AS forest_2016,
+  (t2.forest_percentage - t1.forest_percentage) AS forest_change
+FROM t1
+  RIGHT JOIN t2 ON t1.region = t2.region
+ORDER BY forest_change ASC
+                                                </code></pre>
+										<b>If countries were grouped by percent forestation in quartiles, which group had the most countries in it in 2016?</b>
+                                            <pre><code>WITH t1 AS
+  (SELECT
+      country_name,
+      year,
+      ROUND((SUM(forest_area_sqkm) /
+        SUM(total_area_sq_mi*2.59)*100):: NUMERIC,2) AS forest_percentage
+   FROM forestation
+   WHERE year = 2016
+   GROUP BY country_name, year, forest_area_sqkm)
+
+SELECT
+  Distinct(quartiles),
+  COUNT(country_name) OVER(PARTITION BY quartiles)
+FROM
+  (SELECT country_name,
+    CASE WHEN forest_percentage <=25 THEN 'Q1'
+    WHEN forest_percentage >= 25 AND forest_percentage <=50 THEN 'Q2'
+    WHEN forest_percentage >= 50 AND forest_percentage <=75 THEN 'Q3'
+    ELSE 'Q4' END AS quartiles
+   FROM T1
+   WHERE forest_percentage IS NOT NULL
+    AND year = 2016 AND country_name != 'World') AS snickers
+                                                </code></pre>
+                                                <a href="https://github.com/MichaelECon95/SQL-Deforestation-Case-Study/blob/main/deforestation_code.sql" class="button fit">Full SQL Code</a>
+                                    <hr />
+
+                                    <h2>Additional Information</h2>
+                                    <h4>Skills Used:</h4>
+                                    <div class="row">
+                                    <li>Data Cleaning</li>
+                                    <li>Critical Thinking</li>
+                                    <li>Data Collection</li>
+                                    <li>Postgres</li>
+                                    <li>SQL</li>
+                                    <li>Data Formatting</li>
+                                    <li>Data Joins</li>
+                                    <li>Data Schemas</li>
+                                    <li>Report Writing</li>
+                                    <li>Data Management</li>
+                                    </div>
+                                    <p></p>
+
+									<h4>Training</h4>
+                                    <p>Data Analytics training and guidance provided by <a href="https://www.masterschool.com/">Masterschool</a> along with <a href="https://www.udacity.com/">Udacity</a></p>
+                            </section>
+
+        </div>
+
+                                    <!-- Footer -->
+                                        <footer id="footer">
+                                            <section class="split contact">
+                                                <section class="alt">
+                                                    <h3>Located</h3>
+                                                    <p>San Antonio, Tx</p>
+                                                </section>
+                                                </section>
+                                                <section>
+                                                    <h3>Email</h3>
+                                                    <p><a href="michealecon@outlook.com">michealecon@outlook.com</a></p>
+                                                </section>
+                                                <section>
+                                                    <h3>Social</h3>
+                                                    <ul class="icons alt">
+                                                        <li><a href="https://www.linkedin.com/in/michael-contreras-ba32b018b/" class="icon brands alt fa-linkedin"><span class="label">Twitter</span></a></li>
+                                                        <li><a href="https://github.com/MichaelECon95" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                                                    </ul>
+                                            </section>
+                                        </footer>
+                       
+                            <!-- Scripts -->
+                                <script src="assets/js/jquery.min.js"></script>
+                                <script src="assets/js/jquery.scrollex.min.js"></script>
+                                <script src="assets/js/jquery.scrolly.min.js"></script>
+                                <script src="assets/js/browser.min.js"></script>
+                                <script src="assets/js/breakpoints.min.js"></script>
+                                <script src="assets/js/util.js"></script>
+                                <script src="assets/js/main.js"></script>
+                        
+                        </body>
+                        </html>
