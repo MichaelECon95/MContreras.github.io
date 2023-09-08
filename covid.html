@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Covid-19</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a class="logo">Covid-19</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">About</a></li>
+							<li class="active"><a href="projects.html">Projects</a></li>
+							<li><a href="resume.html">Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/michael-contreras-ba32b018b/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/MichaelECon95" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Heading -->
+							<section class="post">
+								<header class="major">
+									<h1>Death Rate<br />
+									Case Study</h1>
+								</header>
+
+								<!-- Case Highlights -->
+									<h2>Overview</h2>
+                                    <p>This study embarked on an exhaustive exploration into the myriad facets of Data Analytics, seamlessly integrating tools like Microsoft Excel for data preprocessing, SQL for intricate data querying, and Tableau for advanced visualization techniques.</p>
+									<hr />
+
+									<header>
+										<h2>Scope:</h2>
+										<p>The focus zeroes in on the fluctuating death rates due to Covid-19, starting from its outbreak until the initial months of 2023. This timeline not only offers an insight into the initial shockwaves that the pandemic sent across the globe but also illustrates the evolving nature of the disease and the global response over time.</p>
+									</header>
+
+                                    <hr />
+                                    
+                                    <header>
+										<h2>Methodology:</h2>
+                                    </header>
+										<p>Following data comprehension and a multitude of exploratory analytics methods, concentration is set on four pivotal topics. These topics were specifically chosen based on their potential to provide illuminating insights, shedding light on patterns, anomalies, and correlations that might otherwise remain concealed.</p> 
+                                    <hr />
+                                    
+                                    <header>
+									<h2>Key Deliverable:</h2>
+
+                                    </header>
+									<p>In order to make this data easily understood Tableau is used for visualization. By visualizing the data in an interactive and engaging format, we can provide a more profound  underlying narratives and findings.</p>
+									<hr />
+
+								<!-- Analytics -->
+									<h2>Analytics</h2>
+
+									<pre><code>-- 1.
+
+SELECT Location, SUM(CAST(Total_deaths AS SIGNED)) AS TotalDeathCount
+FROM ...coviddeaths
+WHERE continent = ('')
+    AND location NOT IN ('European Union')
+    AND location NOT LIKE ('%income')
+GROUP BY Location
+ORDER BY TotalDeathCount DESC;
+
+-- 2.
+
+SELECT Location, Population, 
+	MAX(total_cases) AS HighestInfectionCount,  
+	Max((total_cases/population))*100 AS PercentPopulationInfected
+FROM ...coviddeaths
+WHERE continent = ('')
+    AND location NOT IN ('European Union')
+    AND location NOT LIKE ('%income')
+GROUP BY Location, Population
+ORDER BY PercentPopulationInfected DESC;
+
+-- 3.
+
+SELECT Location, Population, date, 
+	MAX(total_cases) AS HighestInfectionCount,  
+	Max(total_cases/population) AS PercentPopulationInfected
+FROM ...coviddeaths
+GROUP BY Location, Population, Date 
+ORDER BY PercentPopulationInfected DESC;
+</code></pre>
+
+                                    <hr />
+									<h2>Visuals</h2>
+                                    <p><b>Created through </b><a href="https://public.tableau.com/views/CovidThroughTheYears/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link">Tableau</a>.</p>
+									<dl>
+										<dt>Continental Death</dt>
+										<dd>
+                                            <span class="image fit"><img src="images/covidnumbers.png" alt="" /></span>
+											<p>The graph indicates that Europe has the highest death count from the start of the infection up to early 2013, with an outstanding 2 million cases. As the scale moves down you are able to identify where other areas of the world compare.</p>
+										</dd>
+
+                                        <dt>Global Infection</dt>
+										<dd>
+                                            <span class="image fit"><img src="images/covidcountry.png" alt="" /></span>
+											<p>As the maps shading transitions from a dark blue to a dark red you are able to see specifically where the cases are at its peak with the worst areas being the darkest shade of red.</p>
+										</dd>
+
+                                        <dt>Infection Change</dt>
+										<dd>
+                                            <span class="image fit"><img src="images/covidchange.png
+                                                " alt="" /></span>
+											<p>As cases flexuated between the countries you can see, quarterly, where one country may have increased in known cases where as others may have declined if not maintained a control of the death cases they experienced.</p>
+										</dd>
+                                        <a href="https://github.com/MichaelECon95/Covid-19-Analysis/blob/main/covid_data_exploring.sql" class="button fit">Full Dataset Analysis and Process</a>
+									</dl>
+                                    <hr />
+
+                                    <h2>Additional Information</h2>
+                                    <h4>Skills Used:</h4>
+                                    <div class="row">
+
+                                    <li>Data Cleaning</li>
+                                    <li><a href="https://public.tableau.com/views/CovidThroughTheYears/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link">Tableau</a></li>
+                                    <li>Excel</li>
+                                    <li>Spreadsheets</li>
+                                    <li>Data Collection</li>
+                                    <li>Postgres</li>
+                                    <li>SQL</li>
+                                    <li>Data Formatting</li>
+                                    <li>Data Schemas</li>
+                                    </div>
+                                    <p></p>
+                                    <h4>Helpful Resources</h4>
+                                    <p>siting the sources</p>
+									<h4>Training</h4>
+                                    <p>Data Analytics training and guidance provided by <a href="https://www.alextheanalyst.com/">Alex The Analyst</a> along with data provided by <a href="https://ourworldindata.org/covid-deaths">Our World in Data</a></p>
+                            </section>
+
+                                </div>
+
+                                    <!-- Footer -->
+                                        <footer id="footer">
+                                            <section class="split contact">
+                                                <section class="alt">
+                                                    <h3>Located</h3>
+                                                    <p>San Antonio, Tx</p>
+                                                </section>
+                                                </section>
+                                                <section>
+                                                    <h3>Email</h3>
+                                                    <p><a href="michealecon@outlook.com">michealecon@outlook.com</a></p>
+                                                </section>
+                                                <section>
+                                                    <h3>Social</h3>
+                                                    <ul class="icons alt">
+                                                        <li><a href="https://www.linkedin.com/in/michael-contreras-ba32b018b/" class="icon brands alt fa-linkedin"><span class="label">Twitter</span></a></li>
+                                                        <li><a href="https://github.com/MichaelECon95" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                                                    </ul>
+                                            </section>
+                                        </footer>
+                       
+                            <!-- Scripts -->
+                                <script src="assets/js/jquery.min.js"></script>
+                                <script src="assets/js/jquery.scrollex.min.js"></script>
+                                <script src="assets/js/jquery.scrolly.min.js"></script>
+                                <script src="assets/js/browser.min.js"></script>
+                                <script src="assets/js/breakpoints.min.js"></script>
+                                <script src="assets/js/util.js"></script>
+                                <script src="assets/js/main.js"></script>
+                        
+                        </body>
+                        </html>
